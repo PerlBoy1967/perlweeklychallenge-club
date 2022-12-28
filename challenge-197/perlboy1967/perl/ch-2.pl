@@ -28,7 +28,7 @@ use List::MoreUtils qw(pairwise);
 
 
 sub wiggleSort {
-  my @lo = reverse sort { $a <=> $b } @_;
+  my @lo = sort { $b <=> $a } @_;
   my @up = splice(@lo, 0, scalar(@_) >> 1);
   return grep { defined } pairwise {$a,$b} @lo, @up;
 }
