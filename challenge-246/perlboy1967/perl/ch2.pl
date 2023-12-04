@@ -36,8 +36,7 @@ sub _chk :prototype($$$\@) ($n,$p,$q,$arL) {
   $arL->[$n] == $p * $arL->[$n-2] + $q * $arL->[$n-1];
 }
 
-sub linearRecurrenceOfSecondOrder (@) {
-  my @l = @_;
+sub linearRecurrenceOfSecondOrder (@l) {
   my @i = (2..4);
   my ($min,$max) = minmax(@_);
 
