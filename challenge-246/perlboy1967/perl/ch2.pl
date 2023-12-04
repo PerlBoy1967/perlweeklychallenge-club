@@ -42,7 +42,7 @@ sub linearRecurrenceOfSecondOrder (@l) {
 
   for my $p ($min..$max) {
     for my $q ($min..$max) {
-      return [ $p, $q] if (sum0(map { _chk($_, $p, $q,@l) } @i) == 3);
+      return [$p,$q] if (sum0(map { _chk($_,$p,$q,@l) } @i) == 3);
     }
   }
 
