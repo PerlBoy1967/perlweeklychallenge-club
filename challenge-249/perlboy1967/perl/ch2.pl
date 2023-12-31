@@ -23,11 +23,7 @@ use v5.32;
 use common::sense;
 use feature qw(signatures);
 
-use Data::Printer;
-
 use Test2::V0;
-
-use List::MoreUtils qw(frequency);
 
 sub diStringMatch ($str) {
   my @i = 0 .. length $str;
