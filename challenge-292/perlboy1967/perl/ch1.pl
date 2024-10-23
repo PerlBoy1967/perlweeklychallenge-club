@@ -24,16 +24,15 @@ use common::sense;
 
 use Test2::V0 qw(-no_srand);
 
-use boolean;
-use List::MoreUtils qw(any);
+use List::MoreUtils qw(uniq indexes);
 
 sub twiceLargest (@ints) {
-  my @i = sort { $b <=> $a } @ints;
-  my $max = shift(@i);
-  boolean not any { $_ << 1 > $max } @i;
+  my @i = sort { $b <=> $a } uniq @ints;
+  $i[0] < $i[1] * 2 ? [-1] : [indexes { $_ == $i[0] } @ints];
 }
 
-is(true, twiceLargest(2,4,1,0));
-is(false,twiceLargest(1,2,3,4));
+is(twiceLargest(2,4,1,0),[1], 'Example 1');
+is(twiceLargest(1,2,3,4),[-1],'Example 2');
+is(twiceLargest(1,2,4,4),[2,3],'Own test');
 
 done_testing;
