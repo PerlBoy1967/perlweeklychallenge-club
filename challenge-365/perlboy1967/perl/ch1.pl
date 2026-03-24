@@ -27,7 +27,7 @@ sub alpIndDigSum ($str,$k) {
   # Calculate initial conversion value
   my $i = join '', map { $m->{$_} } split '',$str;
   # Calulate  iteration values
-  $i = sum(split '',$i) while (--$k >=0 and $i > 10);
+  $i = sum(split '',$i) while (--$k >=0 and $i >= 10);
   # And return
   return $i;
 }
@@ -37,5 +37,7 @@ is(alpIndDigSum('az',2),9,'Example 2');
 is(alpIndDigSum('cat',1),6,'Example 3');
 is(alpIndDigSum('dog',2),8,'Example 4');
 is(alpIndDigSum('perl',3),6,'Example 5');
+is(alpIndDigSum('twc',1),10,'Own test 1');
+is(alpIndDigSum('twc',10_000_000),1,'Own test 2');
 
 done_testing;
